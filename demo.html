@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>可视化</title>
+
+</head>
+
+<body>
+    <button>可视化</button>
+    <script src="echarts.min.js"></script>
+    <script>
+        window.onload = function () {
+            //点击事件
+            var btn = document.getElementsByTagName('button')[0];
+            btn.onclick = function () {
+                //点击时生成容器
+                var div = document.createElement('div');
+                //给容器一个宽高
+                div.style.width = '600px';
+                div.style.height = '600px';
+                //把容器添加到页面
+                document.getElementsByTagName('body')[0].appendChild(div);
+                chart(div);
+                //把按钮作废
+                btn.disabled = true;
+                //
+                btn.style.display = 'none';
+            }
+
+
+            function chart(container) {
+                var myChart = echarts.init(container);
+                var option = {
+                    title: {
+                        text: '我是点击成的图'
+                    },
+                    xAxis: {},
+                    yAxis: {},
+                    series: [{
+                        type: 'bar',
+                        data: [30, 22, 55, 44]
+                    }]
+                }
+
+                myChart.setOption(option);
+            }
+
+        }
+
+    </script>
+
+</body>
+
+</html>
