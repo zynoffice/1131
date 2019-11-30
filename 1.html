@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>数据可视化</title>
+    <script src="echarts.min.js"></script>
+</head>
+<body>
+           
+    <div id="main" style="width: 1000px;height:400px;"></div>
+    <script type="text/javascript">
+        var myChart = echarts.init(document.getElementById('main'));
+        var option = {
+            title: {
+                text: '第一财经',
+                textStyle:{
+                    color:"red",
+                    fontweight:"bold",
+                    fontSize:20
+                },
+                subtext:"指数",
+                subtextStyle:{
+                    color:"red",
+                    fontweight:"pink"
+                },
+                right:20
+            },
+            tooltip: {},
+            legend: {
+                data: ['数据']
+            },
+            xAxis: {
+                data: ["上证指数", "深证成指", "沪深300", "创业板指", "中小板指", "恒生指数","红筹指数","国企指数"]
+            },
+            yAxis: {},
+            series: [{
+                name: '销量',
+                type: 'line',
+                data: [2871.98, 9582.16, 3828.67, 1664.90, 6096.48, 26346.49,4162.16,10301.82
+]
+            }]
+        };
+        
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+        </script>
+</body>
+</html>
